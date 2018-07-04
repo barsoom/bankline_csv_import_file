@@ -1,3 +1,3 @@
-module BanklineCsvImportFile
+class BanklineCsvImportFile
   VERSION = "0.1.0"
 end
