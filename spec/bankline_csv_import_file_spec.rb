@@ -26,22 +26,12 @@ describe BanklineCsvImportFile do
     file = BanklineCsvImportFile.new
 
     file.add_domestic_payment(
-      payer_sort_code: "151000",
-      payer_account_number: "31806542",
-      amount: "123.45",
-      beneficiary_sort_code: "151001",
-      beneficiary_account_number: "44298801",
-      beneficiary_name: "John Doe",
+      **domestic_payment_arguments,
       beneficiary_reference: "Invoice 123",
     )
 
     file.add_domestic_payment(
-      payer_sort_code: "151002",
-      payer_account_number: "31806542",
-      amount: "456",
-      beneficiary_sort_code: "151003",
-      beneficiary_account_number: "44298801",
-      beneficiary_name: "John Doe",
+      **domestic_payment_arguments,
       beneficiary_reference: "Invoice 666",
     )
 
