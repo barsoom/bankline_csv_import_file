@@ -44,7 +44,7 @@ file.generate  # => "foo,bar,…"
 
 Currency is assumed to be GBP.
 
-Texts are converted to UPPERCASE and characters other than A-Z, 0-9, space and .-/& are automatically removed from free-text fields.
+Texts are converted to UPPERCASE and characters other than A-Z, 0-9, space and .-/& are automatically removed from free-text values.
 
 Sort codes and account numbers are automatically normalised to the expected format.
 
@@ -57,7 +57,7 @@ Bankline says this about the payment date:
 
 ### International payment
 
-All these fields are required unless stated otherwise.
+All these arguments are required unless stated otherwise.
 
 ``` ruby
 file = BanklineCsvImportFile.new
@@ -82,7 +82,7 @@ file.generate  # => "foo,bar,…"
 
 Currency is assumed to be GBP.
 
-Characters other than a-z, A-Z, 0-9, space and .-/?:(),+' are automatically removed from free-text fields.
+Characters other than a-z, A-Z, 0-9, space and .-/?:(),+' are automatically removed from free-text values.
 
 Sort codes, account numbers, IBAN and BIC are automatically normalised to the expected format.
 
