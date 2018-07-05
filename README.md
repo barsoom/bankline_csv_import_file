@@ -23,7 +23,7 @@ file.generate  # => "foo,bar,…"
 
 ### Domestic payment
 
-All these fields are required unless stated otherwise.
+All these arguments are required unless stated otherwise.
 
 ``` ruby
 file = BanklineCsvImportFile.new
