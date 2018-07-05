@@ -97,4 +97,32 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  config.include(
+    Module.new do
+      def domestic_payment_arguments
+        {
+          payer_sort_code: "151000",
+          payer_account_number: "31806542",
+          amount: "123.45",
+          beneficiary_sort_code: "151001",
+          beneficiary_account_number: "44298801",
+          beneficiary_name: "John Doe",
+          beneficiary_reference: "Invoice 123",
+        }
+      end
+
+      def international_payment_arguments
+        {
+          payer_sort_code: "151000",
+          payer_account_number: "31806542",
+          amount: "123.45",
+          beneficiary_bic: "SPKHDE2HXXX",
+          beneficiary_iban: "DE53250501800039370089",
+          beneficiary_name: "John Doe",
+          beneficiary_reference: "Invoice 123",
+        }
+      end
+    end
+  )
 end
