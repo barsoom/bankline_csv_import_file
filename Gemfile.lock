@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bankline_csv_import_file (0.1.0)
+    bankline_csv_import_file (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -27,8 +27,8 @@ PLATFORMS
 
 DEPENDENCIES
   bankline_csv_import_file!
-  bundler (~> 1.16)
-  rake (~> 10.0)
+  bundler
+  rake
   rspec
 
 BUNDLED WITH
