@@ -11,33 +11,36 @@ USER BEWARE: At the time of writing, we have not yet verified that the produced 
 
 Add any number of payments as described below, then generate the CSV content:
 
-    file = BanklineCsvImportFile.new
+``` ruby
+file = BanklineCsvImportFile.new
 
-    file.add_domestic_payment(…)
-    file.add_domestic_payment(…)
-    file.add_international_payment(…)
+file.add_domestic_payment(…)
+file.add_domestic_payment(…)
+file.add_international_payment(…)
 
-    file.generate  # => "foo,bar,…"
-
+file.generate  # => "foo,bar,…"
+```
 
 ### Domestic payment
 
 All these fields are required unless stated otherwise.
 
-    file = BanklineCsvImportFile.new
+``` ruby
+file = BanklineCsvImportFile.new
 
-    file.add_domestic_payment(
-      payer_sort_code: "151000",
-      payer_account_number: "31806542",
-      amount: "123.45",                        # Strings and BigDecimal are allowed. (Floats are not advisable for money.) Rounded to 2 decimals.
-      beneficiary_sort_code: "151000",
-      beneficiary_account_number: "44298801",
-      beneficiary_name: "John Doe",            # Truncated to a max length of 35.
-      beneficiary_reference: "Invoice 123",    # Truncated to a max length of 18.
-      payment_date: Date.new(2018, 1, 1),      # Optional. Defaults to Date.current if available, otherwise Date.today. See note below.
-    )
+file.add_domestic_payment(
+  payer_sort_code: "151000",
+  payer_account_number: "31806542",
+  amount: "123.45",                        # Strings and BigDecimal are allowed. (Floats are not advisable for money.) Rounded to 2 decimals.
+  beneficiary_sort_code: "151000",
+  beneficiary_account_number: "44298801",
+  beneficiary_name: "John Doe",            # Truncated to a max length of 35.
+  beneficiary_reference: "Invoice 123",    # Truncated to a max length of 18.
+  payment_date: Date.new(2018, 1, 1),      # Optional. Defaults to Date.current if available, otherwise Date.today. See note below.
+)
 
-    file.generate  # => "foo,bar,…"
+file.generate  # => "foo,bar,…"
+```
 
 Currency is assumed to be GBP.
 
@@ -56,22 +59,26 @@ Bankline says this about the payment date:
 
 All these fields are required unless stated otherwise.
 
-    file = BanklineCsvImportFile.new
-    file.add_international_payment(
-      payer_sort_code: "151000",             # Any non-digits will be stripped automatically.
-      payer_account_number: "31806542",      # Any non-digits will be stripped automatically.
-      amount: "123.45",                      # Strings and BigDecimal are allowed. (Floats are not advisable for money.)
-      payment_date: Date.new(2018, 1, 1),    # Optional. Defaults to Date.current if available, otherwise Date.today. See note below.
-      beneficiary_bic: "SPKHDE2H",
-      beneficiary_iban: "DE53250501800039370089",
-      beneficiary_name: "John Doe",
+``` ruby
+file = BanklineCsvImportFile.new
 
-      # Optional but recommended, see below. Truncated to 35 chars per line and max 3 lines.
-      beneficiary_address: "10 Foo Street\nBartown, Baz County\nABC 123"
+file.add_international_payment(
+  payer_sort_code: "151000",             # Any non-digits will be stripped automatically.
+  payer_account_number: "31806542",      # Any non-digits will be stripped automatically.
+  amount: "123.45",                      # Strings and BigDecimal are allowed. (Floats are not advisable for money.)
+  payment_date: Date.new(2018, 1, 1),    # Optional. Defaults to Date.current if available, otherwise Date.today. See note below.
+  beneficiary_bic: "SPKHDE2H",
+  beneficiary_iban: "DE53250501800039370089",
+  beneficiary_name: "John Doe",
 
-      beneficiary_reference: "Invoice 123",  # Optional. Truncated to 35 chars per line and max 4 lines.
-    )
-    file.generate  # => "foo,bar,…"
+  # Optional but recommended, see below. Truncated to 35 chars per line and max 3 lines.
+  beneficiary_address: "10 Foo Street\nBartown, Baz County\nABC 123"
+
+  beneficiary_reference: "Invoice 123",  # Optional. Truncated to 35 chars per line and max 4 lines.
+)
+
+file.generate  # => "foo,bar,…"
+```
 
 Currency is assumed to be GBP.
 
