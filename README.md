@@ -70,11 +70,10 @@ file.add_international_payment(
   beneficiary_bic: "SPKHDE2H",
   beneficiary_iban: "DE53250501800039370089",
   beneficiary_name: "John Doe",
+  beneficiary_reference: "Invoice 123",  # Optional. Truncated to 35 chars per line and max 4 lines.
 
   # Optional but recommended, see below. Truncated to 35 chars per line and max 3 lines.
   beneficiary_address: "10 Foo Street\nBartown, Baz County\nABC 123"
-
-  beneficiary_reference: "Invoice 123",  # Optional. Truncated to 35 chars per line and max 4 lines.
 )
 
 file.generate  # => "foo,bar,…"
