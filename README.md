@@ -32,11 +32,11 @@ file.add_domestic_payment(
   payer_sort_code: "151000",
   payer_account_number: "31806542",
   amount: "123.45",                        # Strings and BigDecimal are allowed. (Floats are not advisable for money.) Rounded to 2 decimals.
+  payment_date: Date.new(2018, 1, 1),      # See note below.
   beneficiary_sort_code: "151000",
   beneficiary_account_number: "44298801",
   beneficiary_name: "John Doe",            # Truncated to a max length of 35.
   beneficiary_reference: "Invoice 123",    # Truncated to a max length of 18.
-  payment_date: Date.new(2018, 1, 1),      # See note below.
 )
 
 file.generate  # => "foo,bar,…"
@@ -63,8 +63,8 @@ All these arguments are required unless stated otherwise.
 file = BanklineCsvImportFile.new
 
 file.add_international_payment(
-  payer_sort_code: "151000",             # Any non-digits will be stripped automatically.
-  payer_account_number: "31806542",      # Any non-digits will be stripped automatically.
+  payer_sort_code: "151000",
+  payer_account_number: "31806542",
   amount: "123.45",                      # Strings and BigDecimal are allowed. (Floats are not advisable for money.)
   payment_date: Date.new(2018, 1, 1),    # See note below.
   beneficiary_bic: "SPKHDE2H",
