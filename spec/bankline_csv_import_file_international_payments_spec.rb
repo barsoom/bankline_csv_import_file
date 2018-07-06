@@ -100,29 +100,4 @@ describe BanklineCsvImportFile, "international payments" do
 
     expect(output).to include ",SPKHDE2HXXX,"
   end
-
-  it "defaults payment_date to Date.current if that method exists (e.g. with Ruby on Rails)" do
-    # Can't use `allow(Date)` since RSpec won't allow us to stub a method that doesn't exist.
-    stub_const "Date", double(current: Date.new(1983, 10, 15))
-
-    file = BanklineCsvImportFile.new
-
-    file.add_international_payment(**international_payment_arguments)
-
-    output = file.generate
-
-    expect(output).to include ",15101983,"
-  end
-
-  it "defaults payment_date to Date.today when Date.current is not available" do
-    allow(Date).to receive(:today).and_return(Date.new(1983, 7, 26))
-
-    file = BanklineCsvImportFile.new
-
-    file.add_international_payment(**international_payment_arguments)
-
-    output = file.generate
-
-    expect(output).to include ",26071983,"
-  end
 end

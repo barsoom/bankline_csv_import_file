@@ -36,7 +36,7 @@ file.add_domestic_payment(
   beneficiary_account_number: "44298801",
   beneficiary_name: "John Doe",            # Truncated to a max length of 35.
   beneficiary_reference: "Invoice 123",    # Truncated to a max length of 18.
-  payment_date: Date.new(2018, 1, 1),      # Optional. Defaults to Date.current if available, otherwise Date.today. See note below.
+  payment_date: Date.new(2018, 1, 1),      # See note below.
 )
 
 file.generate  # => "foo,bar,…"
@@ -66,7 +66,7 @@ file.add_international_payment(
   payer_sort_code: "151000",             # Any non-digits will be stripped automatically.
   payer_account_number: "31806542",      # Any non-digits will be stripped automatically.
   amount: "123.45",                      # Strings and BigDecimal are allowed. (Floats are not advisable for money.)
-  payment_date: Date.new(2018, 1, 1),    # Optional. Defaults to Date.current if available, otherwise Date.today. See note below.
+  payment_date: Date.new(2018, 1, 1),    # See note below.
   beneficiary_bic: "SPKHDE2H",
   beneficiary_iban: "DE53250501800039370089",
   beneficiary_name: "John Doe",

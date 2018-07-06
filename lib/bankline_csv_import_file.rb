@@ -9,10 +9,8 @@ class BanklineCsvImportFile
     @records = []
   end
 
-  def add_domestic_payment(payer_sort_code:, payer_account_number:, amount:, beneficiary_sort_code:, beneficiary_account_number:, beneficiary_name:, beneficiary_reference:, payment_date: nil)
-    payment_date ||= today
+  def add_domestic_payment(payer_sort_code:, payer_account_number:, amount:, beneficiary_sort_code:, beneficiary_account_number:, beneficiary_name:, beneficiary_reference:, payment_date:)
     formatted_payment_date = payment_date.strftime("%d%m%Y")
-
     payer_account_with_sort_code = normalize_account("#{payer_sort_code}#{payer_account_number}")
 
     record = Record.new
@@ -31,11 +29,8 @@ class BanklineCsvImportFile
     @records << record
   end
 
-  def add_international_payment(payer_sort_code:, payer_account_number:, amount:, beneficiary_bic:, beneficiary_iban:, beneficiary_name:, beneficiary_address: nil, beneficiary_reference:, payment_date: nil)
-    # Use Ruby on Rails' `Date.current` when available, since it will be in the app time zone rather than the server time zone.
-    payment_date ||= today
+  def add_international_payment(payer_sort_code:, payer_account_number:, amount:, beneficiary_bic:, beneficiary_iban:, beneficiary_name:, beneficiary_address: nil, beneficiary_reference:, payment_date:)
     formatted_payment_date = payment_date.strftime("%d%m%Y")
-
     payer_account_with_sort_code = normalize_account("#{payer_sort_code}#{payer_account_number}")
 
     normalized_iban = normalize_iban(beneficiary_iban)
@@ -87,11 +82,6 @@ class BanklineCsvImportFile
   end
 
   private
-
-  def today
-    # Use Ruby on Rails' `Date.current` when available, since it will be in the app time zone rather than the server time zone.
-    Date.respond_to?(:current) ? Date.current : Date.today
-  end
 
   def normalize_bic(bic)
     normalized_bic = bic.to_s.upcase.gsub(/[^A-Z\d]/, "")

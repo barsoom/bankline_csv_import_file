@@ -102,6 +102,7 @@ RSpec.configure do |config|
     Module.new do
       def domestic_payment_arguments
         {
+          payment_date: Date.today,
           payer_sort_code: "151000",
           payer_account_number: "31806542",
           amount: "123.45",
@@ -114,6 +115,7 @@ RSpec.configure do |config|
 
       def international_payment_arguments
         {
+          payment_date: Date.today,
           payer_sort_code: "151000",
           payer_account_number: "31806542",
           amount: "123.45",
