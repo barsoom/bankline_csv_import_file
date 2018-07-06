@@ -19,6 +19,8 @@ file.add_international_payment(…)
 file.generate  # => "foo,bar,…"
 ```
 
+At least with NatWest, it seems that the uploaded file must have a `.txt` extension, despite containing CSV.
+
 ### Domestic payment
 
 All these arguments are required unless stated otherwise.
