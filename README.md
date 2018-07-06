@@ -4,8 +4,6 @@ Generate Bankline CSV import files per <https://www.business.rbs.co.uk/content/d
 
 Not intended to be a complete implementation. We have implemented what we need; feel free to make PRs for further behaviour.
 
-USER BEWARE: At the time of writing, we have not yet verified that the produced file works.
-
 
 ## Usage
 
