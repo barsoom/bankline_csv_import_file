@@ -1,7 +1,7 @@
 class BanklineCsvImportFile
   class Record
     def initialize
-      # H001..H003, T001..T082.
+      # 85 columns, namely H001..H003 and T001..T082 per https://www.business.rbs.co.uk/content/dam/rbs_co_uk/Business_and_Content/PDFs/Bankline/Bankline-import-file-guide-CSV-RBS.pdf (section 3).
       @array = Array.new(85)
     end
 
