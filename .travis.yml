@@ -8,6 +8,7 @@ rvm:
 cache: bundler
 
 # 2020-04-24: Avoid deprecation warning about --deployment and --path flags
+# https://github.com/rubygems/bundler/blob/d4993be66fa2e76b3ca00ea56a51ecab5478b726/UPGRADING.md#bundler-3
 install: bundle install --jobs=3 --retry=3
 env:
   global:
