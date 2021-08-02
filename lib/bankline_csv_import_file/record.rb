@@ -13,6 +13,7 @@ class BanklineCsvImportFile
       when /\AT(\d\d\d)\z/
         i = $1.to_i
         raise "Out of range!" unless (1..82).cover?(i)
+
         @array[i + 2] = value
       else
         raise "Unknown field: #{key.inspect}"
