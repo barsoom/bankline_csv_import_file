@@ -27,7 +27,7 @@ describe BanklineCsvImportFile, "international payments" do
 
     file.add_international_payment(
       **international_payment_arguments,
-      beneficiary_reference: "Row 1\n\nRow 2\nRow 3\nRow 4!!! - 123456789x123456789x123456789x\nRow 5"
+      beneficiary_reference: "Row 1\n\nRow 2\nRow 3\nRow 4!!! - 123456789x123456789x123456789x\nRow 5",
     )
 
     output = file.generate

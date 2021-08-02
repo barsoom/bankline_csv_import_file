@@ -70,6 +70,6 @@ RSpec.configure do |config|
           beneficiary_reference: "Invoice 123",
         }
       end
-    end
+    end,
   )
 end
