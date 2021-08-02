@@ -7,8 +7,8 @@ require "bankline_csv_import_file/version"
 Gem::Specification.new do |spec|
   spec.name          = "bankline_csv_import_file"
   spec.version       = BanklineCsvImportFile::VERSION
-  spec.authors       = ["Henrik Nyh"]
-  spec.email         = ["henrik@nyh.se"]
+  spec.authors       = [ "Henrik Nyh" ]
+  spec.email         = [ "henrik@nyh.se" ]
 
   spec.summary       = %q{Generate Bankline CSV import files.}
   spec.homepage      = "https://github.com/barsoom/bankline_csv_import_file"
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.require_paths = ["lib"]
+  spec.require_paths = [ "lib" ]
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
