@@ -1,5 +1,7 @@
 # Bankline CSV import file
 
+[![Ruby CI](https://github.com/barsoom/bankline_csv_import_file/actions/workflows/ci.yml/badge.svg)](https://github.com/barsoom/bankline_csv_import_file/actions/workflows/ci.yml)
+
 Generate Bankline CSV import files per <https://www.business.rbs.co.uk/content/dam/rbs_co_uk/Business_and_Content/PDFs/Bankline/Bankline-import-file-guide-CSV-RBS.pdf>, used e.g. by NatWest.
 
 Not intended to be a complete implementation. We have implemented what we need; feel free to make PRs for further behaviour.
