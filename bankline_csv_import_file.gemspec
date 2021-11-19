@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Generate Bankline CSV import files.}
   spec.homepage      = "https://github.com/barsoom/bankline_csv_import_file"
   spec.license       = "MIT"
+  spec.metadata      = { "rubygems_mfa_required" => "true" }
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
