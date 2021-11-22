@@ -6,7 +6,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 group :development do
-  gem "barsoom_utils", github: "barsoom/barsoom_utils"
+  gem "barsoom_utils"
   gem "rake"
   gem "rspec"
   gem "rubocop"
