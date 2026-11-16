@@ -2,7 +2,7 @@
 
 require "bankline_csv_import_file"
 
-describe BanklineCsvImportFile, "international payments" do
+RSpec.describe BanklineCsvImportFile, "international payments" do
   it "has the correct format" do
     file = BanklineCsvImportFile.new
 
