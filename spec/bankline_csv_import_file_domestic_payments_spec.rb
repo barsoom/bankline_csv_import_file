@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bankline_csv_import_file"
 
 describe BanklineCsvImportFile, "domestic payments" do
