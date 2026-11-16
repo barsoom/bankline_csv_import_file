@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bankline_csv_import_file/version"
 require "bankline_csv_import_file/record"
 
