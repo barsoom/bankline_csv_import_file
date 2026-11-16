@@ -2,7 +2,7 @@
 
 require "bankline_csv_import_file"
 
-describe BanklineCsvImportFile do
+RSpec.describe BanklineCsvImportFile do
   it "can include multiple payments" do
     file = BanklineCsvImportFile.new
 
